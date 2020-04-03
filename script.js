@@ -1,3 +1,7 @@
+const hapus = () => {
+    $(event.currentTarget).parent().remove();
+    // alert('mau hapus');
+}
 const addItemInHTML = (value) => {
 
     if (value == null) {
@@ -10,7 +14,7 @@ const addItemInHTML = (value) => {
 
 // daftarList[0].appendChild(li)
 // li.appendChild(content)
-const itemHTML = `${value}<button>hapus</button>`
+const itemHTML = `${value}<button onclick="hapus()">hapus</button>`
 
 daftarList[0].appendChild(li)
 li.innerHTML = itemHTML
@@ -56,3 +60,64 @@ const runNow = () => {
     }
 }
 runNow();
+
+const logMessage = function (pesan) {
+    console.log(pesan);
+}
+
+const logMessage2 = (pesan) => {
+    console.log(pesan)
+}
+
+const logMessage3 = (pesan, jumlah) => {
+    console.log(`${pesan}dgn jumlah ${jmlah}`); 
+}
+
+const logMessage4 = pesan => console.log(pesan);
+
+
+//contoh penggunaan return di function
+const multiple = function(number){
+    return number * number;
+}
+const nilai = multiple(5);
+console.log(`nilai multiple dari 5 adalah ${nilai}`);
+
+
+const multiple2 = (number) => number * number;
+const nilai2 = multiple2(6)
+console.log(`nilai multiple2 dari 6 adalah ${nilai2}`);
+
+const inputProduct = (productName = 1) => {
+    console.log(`product name ${productName}, with ${number} pieces`);
+}
+
+const nilaiSaya =100;
+let lulus = isLulus(nilaiSaya);
+console.log(`dengan nilai saya ${nilaiSaya}, apakah saya lulus`);
+let kelulusan = ( lulus ? 'lulus': 'ngulang');
+console.log(kelulusan);
+
+
+//contoh callback function
+const doWork = () => {
+    console.log('bathing');
+    console.log('clothing');
+    console.log('to office');    
+}
+
+const doSleep = () => {
+    console.log('bathing');
+    console.log('eating');
+    console.log('go to kasur');    
+}
+
+const ask = (message, doIt, somethingElse) => {
+    const isSetuju = window.confirm(message);
+    if (isSetuju) {
+        doIt();
+    } else {
+        somethingElse();
+    }
+}
+ask("do you work?", doWork, doSleep);
